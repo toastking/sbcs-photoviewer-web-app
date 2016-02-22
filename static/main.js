@@ -5,6 +5,7 @@ $(function(){
   var slideImage = $("#slide"); //get the image
 
   //make the ajax request to the server to get the image urls
+  //TODO: make it poll for data
   $.ajax({
     url:"/image",
     type:"GET",

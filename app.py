@@ -19,6 +19,7 @@ def homepage():
 #the route for getting a random image from the images folder
 @app.route('/image')
 def random_image():
+    #TODO: it would be better to do this with python generators
     print base_img_path+random.choice(imagepaths)
     #return a random image url
     return base_img_path + random.choice(imagepaths)

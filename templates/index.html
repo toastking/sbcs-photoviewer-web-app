@@ -13,10 +13,23 @@
 
 <title>ImageViewer</title>
 </head>
+<div class="container">
+<div class = "row">
 {% if name %}
 <h1>Hello {{name}}...</h1>
 {% else %}
 <h1>Hello...</h1>
 {% endif %}
 
-<img id="slide" src="" alt="Slideshow Image"/>
+</div>
+
+
+<div class = "row">
+  <div class = "col-md-10">
+    <img class = "img-responsive" id="slide" src="" alt="Slideshow Image" width="800"/>
+  </div>
+  <div class "col-md-2">
+    <h2>Family Updates</h2>
+  </div>
+</div>
+</div>
