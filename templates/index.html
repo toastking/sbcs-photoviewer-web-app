@@ -10,10 +10,13 @@
 
 <!--get our main javascript file -->
 <script src = "./static/main.js"></script>
+<link rel="stylesheet" href="./static/style.css">
 
 <title>ImageViewer</title>
 </head>
-<div class="container">
+
+<body>
+<div class="container main_container">
 <div class = "row">
 {% if name %}
 <h1><span id = "greeting">Hello</span> {{name}}...</h1>
@@ -25,11 +28,18 @@
 
 
 <div class = "row">
-  <div class = "col-md-10">
-    <img class = "img-responsive" id="slide" src="" alt="Slideshow Image" width="800"/>
+  <div class = "col-md-8">
+    <img class = "img-responsive img-thumbnail" id="slide" src="" alt="Slideshow Image" width="800"/>
   </div>
-  <div class "col-md-2">
-    <h2>Family Updates</h2>
+  <div class = "col-md-4">
+    <div class = "panel panel-default">
+    <div class = "panel-heading"><h3>Family Updates</h3></div>
+    <div class = "panel-body update-panel">
+      loremupselm
+    </div>
+  </div>
   </div>
 </div>
 </div>
+
+</body>

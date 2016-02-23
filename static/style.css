@@ -1,0 +1,11 @@
+.main_container{
+  border-width: thin;
+  /* add a shadow to the main constainer*/
+  box-shadow: 5px 5px  5px #999999;
+  background-color: #ffffff;
+  margin: auto;
+}
+
+body{
+  background-color: rgb(221, 227, 255);
+}

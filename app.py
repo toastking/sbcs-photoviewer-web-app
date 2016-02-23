@@ -1,4 +1,4 @@
-from flask import Flask,session,request,render_template,url_for
+from flask import Flask,request,render_template,url_for
 import os
 from os import path
 import random
