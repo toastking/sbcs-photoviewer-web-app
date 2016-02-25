@@ -5,7 +5,13 @@ import random
 app = Flask(__name__)
 name = "Nancy" #name of the user
 imagepaths = [] #image paths
-base_img_path = "./static/images/"
+basepath = os.path.dirname(__file__) 
+
+if basepath == "":
+    basepath = "."
+print basepath
+base_img_path = basepath + "/static/images"
+
 
 #set the root directort of the site to render the template for the page
 @app.route('/')
@@ -20,7 +26,7 @@ def homepage():
 def random_image():
     print base_img_path+random.choice(imagepaths)
     #return a random image url
-    return base_img_path + random.choice(imagepaths)
+    return os.path.join(base_img_path, random.choice(imagepaths))
 
 #code to run the app
 if __name__ == '__main__':
