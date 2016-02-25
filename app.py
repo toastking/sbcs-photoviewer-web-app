@@ -2,7 +2,7 @@ from flask import Flask,request,render_template,url_for,send_from_directory
 import os
 import random
 #initialize our flask app object
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='static')
 name = "Nancy" #name of the user
 imagepaths = [] #image paths
 basepath = os.path.dirname(__file__) 
@@ -44,5 +44,5 @@ if __name__ == '__main__':
     imagepaths = [img for img in os.listdir(basepath +'/static/' + base_img_path) if img.endswith(".jpeg") or img.endswith(".jpg") or img.endswith(".png")]
     print "imagepaths:" + str(imagepaths)
     #set up debug mode so the server will automatically reload
-    app.debug = True
+    #app.debug = True
     app.run()#run with the debug flag on
