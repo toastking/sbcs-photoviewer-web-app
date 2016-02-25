@@ -155,7 +155,7 @@ def random_image():
 ```
 
 ### Get the image url on the frontend
-Now it's time to dive into some jQuery!  We're going to add a file called *main.js* to our static folder.  Then we're going to add the jQuery library to our project.  Inside main.js we'll write our jQuery code poll the backend and add the image.
+Now it's time to dive into some jQuery!  We're going to add a file called *main.js* to our static folder.  Then we're going to add the jQuery library to our project.  Inside main.js we'll write our jQuery code poll the backend and add the image. [Polling](https://en.wikipedia.org/wiki/Polling_(computer_science)) is an efficient way of running an operation periodically.
 
 - Make the main.js file inside your ./static folder
 - Add the jQuery library to the *<head>* part of index.html by getting the script tag from the [Google CDN](https://developers.google.com/speed/libraries/)
