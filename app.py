@@ -34,7 +34,7 @@ def get_image(filename):
     #return a random image url
     url = '.' + url_for('static', filename="images/" )
     print "imgurl: " + url
-    return send_from_directory(url,filename)
+    return app.send_static_file(url+filename)
     
 #code to run the app
 if __name__ == '__main__':
