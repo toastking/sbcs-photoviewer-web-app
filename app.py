@@ -10,7 +10,7 @@ basepath = os.path.dirname(__file__)
 if basepath == "":
     basepath = "."
 print basepath
-base_img_path = "/static/images/"
+base_img_path = "/images/"
 
 
 #set the root directort of the site to render the template for the page
@@ -32,9 +32,9 @@ def random_image():
 @app.route('/static/images/<path:filename>')
 def get_image(filename):
     #return a random image url
-    url = '.' + url_for('static', filename="images/" )
+    url = '.' + url_for('images', filename=filename )
     print "imgurl: " + url
-    return app.send_static_file(url+filename)
+    return app.send_static_file(url)
     
 #code to run the app
 if __name__ == '__main__':
