@@ -25,6 +25,28 @@ The folder setup is as follows:
 - static is where the css, javascript, and images are stored on the server
 - app.py is our python file that will be used to run our server
 
+## Setting up virtualenv
+
+**This part is very important!**
+
+Python uses a package manager called *pip*.  By default it installs all packaged globally, throughout your whole system.  We don't want every project to have every library though.
+We use something called virtualenv to prevent this.  Virtualenv makes a sandbox for your project.  Anything installed stays in that project.
+
+To set it up follow the first part of the tutorial on the [virtualenv website](http://docs.python-guide.org/en/latest/dev/virtualenvs/).
+
+After we have our virtual environment set up and activated we want to install the packages we want using *pip install* on the command line:
+
+```
+pip install flask
+pip install gunicorn
+```
+
+Then we want to output the requirements of our project to a file called *requirements.txt*.  We're going to need it later for when we deploy our app to the cloud.
+
+```
+pip freeze > requirements.txt
+```
+
 ## Setting up a Minimal Flask server
 Flask is a *microframework*, it has very simple syntax.  The routing is based off making annotations with paths and then specifying the HTTP method you want to use (GET,POST,PUT,DELETE).
 
@@ -192,5 +214,19 @@ $(function(){
 
 ```
 
-## Uploading the Project to Azure
-TODO: Halaa can you add this stuff?
+## Uploading the Project to the Cloud
+Now we want to deploy our app to the cloud so other people can look at it and see how cool we are.  We're going to use Heroku because it's easy to connect with Github.
+
+You can see the tutorial for deploying Python apps to Heroku on the [their website](https://devcenter.heroku.com/articles/getting-started-with-python#introduction)
+
+We have our requirements.txt from earlier in the project.  Now we need to make a Procfile.  
+
+The Procfile tells the gunicorn web server how to run our app the Heroku VM (aka the cloud).
+
+Here's what our procfile should look like (if you named your main file app.py):
+
+```
+web: gunicorn app:app --log-file=-
+```
+
+Then we can deploy our app by connecting heroku to our [github project](https://devcenter.heroku.com/articles/github-integration) or by using the [heroku toolbelt](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app).
