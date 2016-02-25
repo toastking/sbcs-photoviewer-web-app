@@ -8,9 +8,11 @@ import sys
 #initialize our flask app object
 app = Flask(__name__)
 name = "Nancy" #name of the user
-imagepaths = [] #image paths
+
 basepath = os.path.dirname(__file__) 
-iterator = None
+imagepaths = ["pic1.jpeg", "pic2.jpg","pic3.jpg"]
+print "imagepaths:" + str(imagepaths)
+iterator = itertools.cycle(imagepaths)
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
@@ -50,10 +52,7 @@ def random_image():
 if __name__ == '__main__':
     #get all the image paths before the app runs
     #check if it's a file and then add is to the image paths if it is using a python list comprehension
-    #imagepaths = [img for img in os.listdir(basepath +'/static/' + base_img_path) if img.endswith(".jpeg") or img.endswith(".jpg") or img.endswith(".png")]
-    imagepaths = ["pic1.jpeg", "pic2.jpg","pic3.jpg"]
-    print "imagepaths:" + str(imagepaths)
-    iterator = itertools.cycle(imagepaths)
+    #imagepaths = [img for img in os.listdir(basepath +'/static/' + base_img_path) if img.endswith(".jpeg") or img.endswith(".jpg") or img.endswith(".png")
     #set up debug mode so the server will automatically reload
-    app.debug = True
+    #app.debug = True
     app.run()#run with the debug flag on
