@@ -26,7 +26,7 @@ def homepage():
 def random_image():
     print base_img_path+random.choice(imagepaths)
     #return a random image url
-    return os.path.join(base_img_path, random.choice(imagepaths))
+    return base_img_path+random.choice(imagepaths)
 
 #code to run the app
 if __name__ == '__main__':
