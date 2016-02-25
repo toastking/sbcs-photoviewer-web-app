@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template,url_for
+from flask import Flask,request,render_template,url_for,send_from_directory
 import os
 import random
 #initialize our flask app object
@@ -25,8 +25,17 @@ def homepage():
 @app.route('/image')
 def random_image():
     #return a random image url
-    return url_for('static', filename="images/" + random.choice(imagepaths))
+    url = '.' + url_for('static', filename="images/" + random.choice(imagepaths) )
+    print "url: " + url
+    return url
 
+@app.route('/static/images/<path:filename>')
+def get_image(filename):
+    #return a random image url
+    url = '.' + url_for('static', filename="images/" )
+    print "imgurl: " + url
+    return send_from_directory(url,filename)
+    
 #code to run the app
 if __name__ == '__main__':
     #get all the image paths before the app runs

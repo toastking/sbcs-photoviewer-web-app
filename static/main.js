@@ -24,10 +24,13 @@ $(function(){
         url:"/image",
         type:"GET",
         dataType:"text",
-        success: function(text){
-          console.log(text);
-          slideImage.attr("src",text);
-        },
+        success: function(data){
+          console.log(data);
+          slideImage.attr("src",data);
+        },error: function(error) {
+            console.log(error);
+        }
+        ,
         complete: setTimeout(poll, 6000),
         timeout: 2000
       });
