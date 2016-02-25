@@ -2,6 +2,7 @@ from flask import Flask,request,render_template,url_for,send_from_directory
 import os
 import random
 import itertools
+import logging 
 
 #initialize our flask app object
 app = Flask(__name__)
@@ -10,6 +11,8 @@ imagepaths = [] #image paths
 basepath = os.path.dirname(__file__) 
 iterator = None
 
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 if basepath == "":
     basepath = "."
