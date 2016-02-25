@@ -10,7 +10,7 @@ basepath = os.path.dirname(__file__)
 if basepath == "":
     basepath = "."
 print basepath
-base_img_path = "/images/"
+base_img_path = "images/"
 
 
 #set the root directort of the site to render the template for the page
@@ -25,22 +25,23 @@ def homepage():
 @app.route('/image')
 def random_image():
     #return a random image url
-    url = '.' + url_for('static', filename="images/" + random.choice(imagepaths) )
+    url =  url_for('static', filename = base_img_path + random.choice(imagepaths))
     print "url: " + url
     return url
 
-@app.route('/static/images/<path:filename>')
-def get_image(filename):
+
+#@app.route('/images/<path:filename>')
+#def images(filename):
     #return a random image url
-    url = '.' + url_for('images', filename=filename )
-    print "imgurl: " + url
-    return app.send_static_file(url)
+ #   url =  url_for('images')
+ #   print "imgurl: " + url
+ #   return send_from_directory(url,filename)
     
 #code to run the app
 if __name__ == '__main__':
     #get all the image paths before the app runs
     #check if it's a file and then add is to the image paths if it is using a python list comprehension
-    imagepaths = [img for img in os.listdir(basepath + base_img_path) if img.endswith(".jpeg") or img.endswith(".jpg") or img.endswith(".png")]
+    imagepaths = [img for img in os.listdir(basepath +'/static/' + base_img_path) if img.endswith(".jpeg") or img.endswith(".jpg") or img.endswith(".png")]
     print "imagepaths:" + str(imagepaths)
     #set up debug mode so the server will automatically reload
     app.debug = True
