@@ -1,11 +1,13 @@
 .main_container{
-  border-width: thin;
   /* add a shadow to the main constainer*/
-  box-shadow: 5px 5px  5px #999999;
-  background-color: #ffffff;
+  background-color: #0D1B1E;
   margin: auto;
 }
 
+.header {
+  color: #EBF5EE;
+}
+
 body{
-  background-color: rgb(221, 227, 255);
+  background-color: #0D1B1E;
 }
